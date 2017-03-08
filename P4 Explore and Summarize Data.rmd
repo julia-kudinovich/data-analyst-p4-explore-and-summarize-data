@@ -306,10 +306,10 @@ there is little if any correlation between quality and pH.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 p1 <- ggplot(aes(x=pH, y=fixed.acidity),data=wine) +
-  geom_jitter()+
+  geom_jitter(alpha=0.1)+
   geom_smooth()
 p2<- ggplot(aes(x=pH, y=volatile.acidity),data=wine) +
-  geom_jitter()+
+  geom_jitter(alpha=0.1)+
   geom_smooth()
 
 grid.arrange(p1,p2, ncol=2)
@@ -330,10 +330,10 @@ On the other hand volatile acidity and pH have little to no correlation.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 p1 <- ggplot(aes(x=residual.sugar, y=density),data=wine) +
-  geom_jitter()+
+  geom_jitter(alpha=0.1)+
   geom_smooth()
 p2 <- ggplot(aes(x=alcohol, y=density),data=wine) +
-  geom_jitter()+
+  geom_jitter(alpha=0.1)+
   geom_smooth()
 
 grid.arrange(p1,p2, ncol=2)
@@ -435,12 +435,13 @@ dioxide with quality.
 
 
 ```{r echo=FALSE, Multivariate_Plots}
-ggplot(aes(y=volatile.acidity, x=total.sulfur.dioxide),data=wine) +
+ggplot(aes(y=volatile.acidity, x=total.sulfur.dioxide, color=quality.factor),data=wine) +
   geom_jitter()+
-  facet_wrap(~quality.factor)
+  scale_colour_brewer( type = "seq")
 ```
 
-It looks like better quality wines tend to concentrate in the lower left corner.
+It looks like better quality wines tend to concentrate closer the lower left 
+corner than lower quality wines
 This means that better wines have lower volatile acidity and total sulfur 
 dioxide.
 
@@ -470,7 +471,8 @@ For different levels of quality, we see almost identical plots.
 
 ```{r echo=FALSE}
 ggplot(aes(x=chlorides, y=alcohol, color=quality.factor), data=wine) +
-  geom_jitter() 
+  geom_jitter() +
+  scale_colour_brewer( type = "seq")
 
 ```
 
@@ -520,13 +522,15 @@ p1 <- ggplot(aes(x=residual.sugar, y=density, color=quality.factor),data=wine) +
   geom_jitter()+
   ggtitle("Density vs Residual Sugar")+
   ylab('Density (gram/liter)') +
-  xlab('Residual sugar (gram/liter)')
+  xlab('Residual sugar (gram/liter)')+
+  scale_colour_brewer( type = "seq")
 
 p2 <- ggplot(aes(x=alcohol, y=density, color=quality.factor),data=wine) +
   geom_jitter()+
   ggtitle("Density vs Alcohol")+
   ylab('Density (gram/liter)') +
-  xlab('Alcohol content (%)')
+  xlab('Alcohol content (%)')+
+  scale_colour_brewer( type = "seq")
 
 
 grid.arrange(p1,p2, ncol=2)
@@ -557,12 +561,12 @@ wines. For different levels of quality, we see almost identical plots.
 
 ### Plot Three: Volatile acidity vs total sulfur dioxide by quality
 ```{r echo=FALSE, Plot_Three}
-ggplot(aes(y=volatile.acidity, x=total.sulfur.dioxide),data=wine) +
-  geom_jitter(alpha = 0.1, color='blue')+
-  facet_wrap(~quality.factor)+
+ggplot(aes(y=volatile.acidity, x=total.sulfur.dioxide, color=quality.factor),data=wine) +
+  geom_jitter()+
   ggtitle("Volatile acidity vs total sulfur dioxide by quality")+
   ylab('Volatile acidity (gram/liter)') +
-  xlab('Total sulfur dioxide (parts per million)')
+  xlab('Total sulfur dioxide (parts per million)')+
+  scale_colour_brewer( type = "seq")
 ```
 
 ### Description Three
