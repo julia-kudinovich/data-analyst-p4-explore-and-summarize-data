@@ -655,14 +655,12 @@ Also, I did not find a relationship between pH level and quality. That
 particular variable was among the ones I thought would have a great impact on 
 quality. 
 
-
 One of the struggles I came across was the choice of variables that might 
 influence wine quality. Without having a chemistry and/or wine background 
 knowledge I found it hard to pick variables.  From the description of chemical 
 factors and common sense I have selected several that I thought might influence 
 quality, However, only after I explored each variable one at a time I found out
 which of those variables actually had relationships.
-
 
 Also, I need to mention that correlation does not mean causation. All of the
 findings suggest that there might be a relationship however we cannot say
